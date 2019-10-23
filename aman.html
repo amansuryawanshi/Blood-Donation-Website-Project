@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: red;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="register.html">Register</a></li>
+  <li><a href="why donate blood.html">why donate blood</a></li>
+  <li><a href="who can give blood.html">who can give blood</a></li>
+  <li><a class="active" href="aman.html">Contact Us</a></li>
+</ul>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">$('document').ready(function(){
+	$('input[type="text"], input[type="email"], textarea').focus(function(){
+		var background = $(this).attr('id');
+		$('#' + background + '-form').addClass('formgroup-active');
+		$('#' + background + '-form').removeClass('formgroup-error');
+	});
+	$('input[type="text"], input[type="email"], textarea').blur(function(){
+		var background = $(this).attr('id');
+		$('#' + background + '-form').removeClass('formgroup-active');
+	});
+
+function errorfield(field){
+	$(field).addClass('formgroup-error');
+	console.log(field);	
+}
+
+$("#waterform").submit(function() {
+	var stopsubmit = false;
+
+if($('#name').val() == "") {
+	errorfield('#name-form');
+	stopsubmit=true;
+}
+if($('#email').val() == "") {
+	errorfield('#email-form');
+	stopsubmit=true;
+}
+  if(stopsubmit) return false;
+});
+		
+});</script>
+<link rel="stylesheet" type="text/css" href="aman.css"></head>
+<body><header>
+	<h1>Contact us</h1>
+</header>
+
+<div id="form">
+
+<div class="fish" id="fish"></div>
+<div class="fish" id="fish2"></div>
+
+<form id="waterform" method="post">
+
+<div class="formgroup" id="name-form">
+    <label for="name">Your name*</label>
+    <input type="text" id="name" name="name" />
+</div>
+
+<div class="formgroup" id="email-form">
+    <label for="email">Your e-mail*</label>
+    <input type="email" id="email" name="email" />
+</div>
+
+<div class="formgroup" id="message-form">
+    <label for="message">Your message</label>
+    <textarea id="message" name="message"></textarea>
+</div>
+
+	<input type="submit" value="Send your message!" />
+</form>
+</div>
+
+</body>
+</html>
